@@ -1,5 +1,5 @@
 from app import db
-
+from datetime import datetime
 # class User(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
 #     username = db.Column(db.String(80), unique=True)
@@ -15,59 +15,68 @@ from app import db
 
 class User(db.Model):
     id = db.Column(db.INTEGER, primary_key=True)
-    username = db.Column(db.String(50), unique=True)
-    password = db.Column(db.String(50))
+    username = db.Column(db.String(50), unique=True, nullable=False)
+    password = db.Column(db.String(50), nullable=False)
 
-    created_at = db.Column(db.DATETIME)
-    updated_at = db.Column(db.DATETIME)
+    created_at = db.Column(db.DATETIME, default=datetime.utcnow())
+    updated_at = db.Column(db.DATETIME, default=datetime.utcnow())
     delete_at = db.Column(db.DATETIME)
+
+    projects = db.relationship('Project', backref='user')
+    nets = db.relationship('Net', backref='user')
+    datasets = db.relationship('Dataset', backref='user')
+    trains = db.relationship('Train', backref='user')
 
 
 class Project(db.Model):
-    id = db.Column(db.INTEGER,primary_key=True)
-    user_id = db.Column(db.INTEGER)
-    project_name = db.Column(db.String(50))
-    net_id = db.Column(db.INTEGER)
-    dataset_id = db.Column(db.INTEGER)
+    id = db.Column(db.INTEGER, primary_key=True)
+    user_id = db.Column(db.INTEGER, db.ForeignKey('user.id'))
+    project_name = db.Column(db.String(50), nullable=False)
+    net_id = db.Column(db.INTEGER, db.ForeignKey('net.id'))
+    dataset_id = db.Column(db.INTEGER, db.ForeignKey('dataset.id'))
     solver_id = db.Column(db.INTEGER)
 
-    created_at = db.Column(db.DATETIME)
-    updated_at = db.Column(db.DATETIME)
+    created_at = db.Column(db.DATETIME, default=datetime.utcnow())
+    updated_at = db.Column(db.DATETIME, default=datetime.utcnow())
     delete_at = db.Column(db.DATETIME)
+    net = db.relationship('Net', backref='project')
+    dataset = db.relationship('Dataset', backref='project')
 
 
 class Net(db.Model):
     id = db.Column(db.INTEGER,primary_key=True)
-    user_id = db.Column(db.INTEGER)
-    net_path = db.Column(db.String(50))
-    net_name = db.Column(db.String(50))
+    user_id = db.Column(db.INTEGER, db.ForeignKey('user.id'))
+    net_path = db.Column(db.String(50), nullable=False)
+    net_name = db.Column(db.String(50), nullable=False)
 
-    created_at = db.Column(db.DATETIME)
-    updated_at = db.Column(db.DATETIME)
+    created_at = db.Column(db.DATETIME, default=datetime.utcnow())
+    updated_at = db.Column(db.DATETIME, default=datetime.utcnow())
     delete_at = db.Column(db.DATETIME)
+    project = db.relationship('Project', uselist=False, back_populates='net')
 
 
 class Dataset(db.Model):
     id = db.Column(db.INTEGER,primary_key=True)
-    dataset_name = db.Column(db.String(50))
+    dataset_name = db.Column(db.String(50), nullable=False)
     dataset_size = db.Column(db.INTEGER)
     format = db.Column(db.String(50))
-    project_id = db.Column(db.INTEGER)
+    user_id = db.Column(db.INTEGER, db.ForeignKey('user.id'))
     path = db.Column(db.String(100))
     description = db.Column(db.TEXT)
 
-    created_at = db.Column(db.DATETIME)
-    updated_at = db.Column(db.DATETIME)
+    created_at = db.Column(db.DATETIME, default=datetime.utcnow())
+    updated_at = db.Column(db.DATETIME, default=datetime.utcnow())
     delete_at = db.Column(db.DATETIME)
+    project = db.relationship('Project', uselist=False, back_populates='dataset')
 
 
 class Train(db.Model):
     id = db.Column(db.INTEGER,primary_key=True)
-    user_id = db.Column(db.INTEGER)
+    user_id = db.Column(db.INTEGER, db.ForeignKey('user.id'))
     train_path = db.Column(db.String(100))
-    train_name = db.Column(db.String(50))
+    train_name = db.Column(db.String(50), nullable=False)
 
-    created_at = db.Column(db.DATETIME)
-    updated_at = db.Column(db.DATETIME)
+    created_at = db.Column(db.DATETIME, default=datetime.utcnow())
+    updated_at = db.Column(db.DATETIME, default=datetime.utcnow())
     delete_at = db.Column(db.DATETIME)
 

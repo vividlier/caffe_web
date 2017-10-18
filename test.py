@@ -1,5 +1,7 @@
-from caffe_web import db,User
+from app.model import *
 
-u1 = User(username= 'john', email = 'john@example.com')
-db.session.add(u1)
-db.session.commit()
+# u1 = User(username='john', password='john@example.com')
+# db.session.add(u1)
+# db.session.commit()
+tst = Project.query.all()
+print tst[0].user.username
