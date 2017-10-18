@@ -1,12 +1,7 @@
 
 from flask import Flask, render_template, request, redirect,url_for, session
-import config
-from models import User
-from exts import db
-
-app = Flask(__name__)
-app.config.from_object(config)
-db.init_app(app)
+from app import app
+from app.model import *
 
 @app.route('/')
 def index():
