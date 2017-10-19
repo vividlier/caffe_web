@@ -91,4 +91,9 @@ class Solver(db.Model):
 
     created_at = db.Column(db.DATETIME, default=datetime.utcnow())
     updated_at = db.Column(db.DATETIME, default=datetime.utcnow())
+<<<<<<< HEAD
     delete_at = db.Column(db.DATETIME)
+=======
+    delete_at = db.Column(db.DATETIME)
+
+>>>>>>> 6dd41bfded570a5236c7bd8c6e9619ea32bc5d8e
