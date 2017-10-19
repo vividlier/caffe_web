@@ -31,4 +31,3 @@ def register():
 def logout():
     session.clear()
     return 'logout'
-abc

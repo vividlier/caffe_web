@@ -10,5 +10,4 @@ app.secret_key=config.secret
 db = SQLAlchemy(app)
 
 from app import routes
-abc
 
