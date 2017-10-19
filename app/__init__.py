@@ -9,9 +9,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = config.SQLALCHEMY_TRACK_MODIFICAT
 app.secret_key=config.secret
 db = SQLAlchemy(app)
 
-<<<<<<< HEAD
 from app import routes
-=======
-from app import routes
+abc
 
->>>>>>> 6dd41bfded570a5236c7bd8c6e9619ea32bc5d8e
