@@ -5,6 +5,7 @@ from app import config
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = config.SQLALCHEMY_DATABASE_URI
+#如果设置成True(默认情况)，Flask-SQLAlchemy将会追踪对象的修改并发送信号
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = config.SQLALCHEMY_TRACK_MODIFICATIONS
 app.secret_key=config.secret
 db = SQLAlchemy(app)
