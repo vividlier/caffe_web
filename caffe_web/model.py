@@ -1,4 +1,4 @@
-from app import db
+from caffe_web import db
 from datetime import datetime
 # class User(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)

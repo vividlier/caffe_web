@@ -1,4 +1,4 @@
 # coding=utf-8
-from app.model import *
+from caffe_web.model import *
 db.drop_all()
 db.create_all()

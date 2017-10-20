@@ -1,4 +1,4 @@
-from app.model import *
+from caffe_web.model import *
 
 # u1 = User(username='john', password='john@example.com')
 # db.session.add(u1)
