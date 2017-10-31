@@ -1,6 +1,7 @@
 # 接口文档//暂定
 ## 注册
-post /user/signUp  
+POST **/user/signUp**
+
 request:
 ```json
 {
@@ -19,7 +20,11 @@ response:
 }
 ```
 ```
-header:set-cookie
+header: set-cookie
+
+Location: /user/<int:id>
+
+创建成功会返回201 CREATED，创建失败（可能是用户名重名）会返回400.
 ```
 ## 登录
 post /user/signIn  
