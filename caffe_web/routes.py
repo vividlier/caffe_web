@@ -54,7 +54,14 @@ def signIn():
     if verify_password(username, password):
         user = User.query.filter(User.username == username).first()
         session['user_id'] = user.id
-        return (jsonify({"status":"200","data":{'user_id': user.id, 'username': user.username}}))
+        return (jsonify({
+            "status":"200",
+            "data":
+                {
+                    'user_id': user.id,
+                    'username': user.username
+                }
+        }))
     else:
         abort(400)
 
