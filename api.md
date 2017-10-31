@@ -102,6 +102,81 @@ response:
 }
 ```
 ## 获取dataset列表
+post /dataset/getDatasetListByUser
+request:
+```json
+{
+    "user_id":"xx"
+}
+```
+response:
+```json
+{
+    "status":"ok",
+    "data":{
+        "dataset_list":[
+            {
+                "dataset_id":"xx",
+                "dataset_name":"xxx",
+                "dataset_size":"xxx",
+                "formate":"xxx",
+                "path":"xxx",
+                "description":"xxx",
+                "created_time":"xxx"
+            }
+        ]
+    }
+}
+```
 ## 新建dataset
+post /dataset/createDataset
+request:
+```json
+{
+    "dataset_name":"xxx",
+    "format":"xxx",
+    "description":"xxx"
+}
+```
+response:
+```json
+{
+    "status":"ok",
+    "data":{}
+}
+```
 ## 修改dataset
+post /dataset/updateDataset
+request:
+```json
+{
+    "dataset_id":"xx",
+    "dataset_name":"xxx",
+    "format":"xxx",
+    "description":"xxx"
+}
+```
+response:
+```json
+{
+    "status":"ok",
+    "data":{}
+}
+```
 ## 上传dataset //后续可以修改成通用上传接口
+post /dataset/uploadDataset
+request:
+```json
+{
+    "file":{}
+}
+```
+response:
+```json
+{
+    "status":"ok",
+    "data":{}
+}
+```
+## 获取net
+## 创建net
