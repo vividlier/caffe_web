@@ -12,10 +12,10 @@ db = SQLAlchemy(app)
 auth = HTTPBasicAuth()
 
 import caffe_web.routes
-app.register_blueprint(caffe_web.routes.blueprint, url_prefix='/user')
+app.register_blueprint(caffe_web.routes.blueprint, url_prefix= '/user')
 
 import caffe_web.dataset.routes
-app.register_blueprint(caffe_web.dataset.routes.blueprint, url_prefix='/dataset')
+app.register_blueprint(caffe_web.dataset.routes.blueprint, url_prefix= '/dataset')
 
 import caffe_web.project.routes
-app.register_blueprint(caffe_web.project.routes.blueprint, url_prefix='/project')
+app.register_blueprint(caffe_web.project.routes.blueprint, url_prefix= '/project')

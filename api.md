@@ -12,19 +12,18 @@ request:
 response:
 ```json
 {
-    "status":"ok",
-    "data":{
-        "user_id":"xx",
-        "username":"xxx"
-    }
+    "user_id": "用户id",
+    "username": "用户名称"
 }
 ```
 ```
-header: set-cookie
+header: Set-Cookie
 
 Location: /user/<int:id>
 
-创建成功会返回201 CREATED，创建失败（可能是用户名重名）会返回400.
+创建成功会返回 201 CREATED
+
+创建失败（可能是用户名重名）会返回 400 BAD REQUEST
 ```
 ## 登录
 post /user/signIn  
@@ -38,7 +37,7 @@ request:
 response:
 ```json
 {
-    "status":"ok",
+    "status":"200",
     "data":{
         "user_id":"xx",
         "username":"xxx"
