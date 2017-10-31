@@ -8,6 +8,7 @@ def  getProjectListByUser():
     data = request.get_json()
     userId = data.get('userId')
     project = Project.query.filter(Project.user_id == userId).first()
+    print(project)
     d = {
         "status": "ok",
         "data":{
