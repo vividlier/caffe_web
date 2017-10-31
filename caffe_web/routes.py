@@ -14,7 +14,7 @@ def signUp():
     tmp = json.loads(request.get_data())
     print "username is {}".format(tmp.get("username"))
     print "password is {}".format(tmp.get("password"))
-    user = model.User(username = tmp.get("username"), password = tmp.get("password"))
+    user = model.User(username=tmp.get("username"), password=tmp.get("password"))
     db.session.add(user)
     try:
         db.session.commit()
@@ -22,7 +22,6 @@ def signUp():
     except IntegrityError:
         db.session.rollback()
         return "SignUp failed"
-
 
 
 

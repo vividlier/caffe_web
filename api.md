@@ -87,3 +87,21 @@ response:
 }
 ```
 ## 新建project
+post /project/createProject  
+request:
+```json
+{
+    "project_name":"xxx"
+}
+```
+response:
+```json
+{
+    "status":"ok",
+    "data":{}
+}
+```
+## 获取dataset列表
+## 新建dataset
+## 修改dataset
+## 上传dataset //后续可以修改成通用上传接口
