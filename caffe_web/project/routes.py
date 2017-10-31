@@ -8,5 +8,5 @@ def getProjectDetailById():
     data = request.get_json()
     projectId = data.get('projectId')
     project = Project.query.filter(Project.id == projectId).first()
-    print project.project_name
+    print(project.project_name)
     return 'detail'

@@ -2,12 +2,12 @@ from flask import Blueprint, request, session, abort, url_for, jsonify, g
 
 from caffe_web import model
 from caffe_web import db, auth
-from model import User
+from caffe_web.model import User
 from sqlalchemy.exc import IntegrityError
 import json
 
 blueprint = Blueprint(__name__, __name__)
-print __name__
+print(__name__)
 
 
 @blueprint.route('/signUp', methods = ['POST'])
@@ -27,7 +27,7 @@ def signUp():
     db.session.add(user)
 
     db.session.commit()
-    print user.id
+    print(user.id)
     session['user_id'] = user.id
     # db.session.close()
     return (jsonify({'username': user.username}), 201,
@@ -52,6 +52,7 @@ def signIn():
     tmp = request.get_json()
     username = tmp.get("username")
     password = tmp.get("password")
+    print(type(User))
     user = User.query.filter(User.username == username, User.password == password).first()
     if user:
         session['user_id'] = user.id
