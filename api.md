@@ -46,6 +46,8 @@ response:
 ```
 ```
 header:set-cookie
+
+登陆失败会返回 400 BAD REQUEST
 ```
 ## 获取project页列表
 post /project/getProjectListByUser  
