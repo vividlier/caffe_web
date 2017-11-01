@@ -1,13 +1,15 @@
 
-.gitignore
-.idea/
-caffe_web/__pycache__/
-caffe_web/dataset/__pycache__/
-caffe_web/project/__pycache__/
-caffe_web/test.db
-
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
 *.pyc
 caffe_web/*.pyc
 
 caffe_web/*.db
+
+.gitignore
+
+db.ini
+deploy_key_rsa
+.idea/preferred-vcs.xml
