@@ -1,0 +1,456 @@
+{
+    "layer": [
+        {
+            "accuracy_param": {
+                "axis": 1,
+                "top_k": 1
+            },
+            "argmax_param": {
+                "top_k": 1
+            },
+            "batch_norm_param": {
+                "eps": 1e-05,
+                "moving_average_fraction": 0.999
+            },
+            "bias_param": {
+                "axis": 1,
+                "filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                },
+                "num_axes": 1
+            },
+            "concat_param": {
+                "axis": 1,
+                "concat_dim": 1
+            },
+            "contrastive_loss_param": {
+                "margin": 1
+            },
+            "convolution_param": {
+                "axis": 1,
+                "bias_filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                },
+                "bias_term": true,
+                "group": 1,
+                "weight_filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                }
+            },
+            "crop_param": {
+                "axis": 2
+            },
+            "data_param": {
+                "prefetch": 4,
+                "scale": 1
+            },
+            "dropout_param": {
+                "dropout_ratio": 0.5
+            },
+            "eltwise_param": {
+                "operation": 1,
+                "stable_prod_grad": true
+            },
+            "elu_param": {
+                "alpha": 1
+            },
+            "embed_param": {
+                "bias_filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                },
+                "bias_term": true,
+                "weight_filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                }
+            },
+            "exp_param": {
+                "base": -1,
+                "scale": 1
+            },
+            "flatten_param": {
+                "axis": 1,
+                "end_axis": -1
+            },
+            "hinge_loss_param": {
+                "norm": 1
+            },
+            "image_data_param": {
+                "batch_size": 1,
+                "is_color": true,
+                "scale": 1
+            },
+            "infogain_loss_param": {
+                "axis": 1
+            },
+            "inner_product_param": {
+                "axis": 1,
+                "bias_filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                },
+                "bias_term": true,
+                "weight_filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                }
+            },
+            "input_param": {
+                "shape": [
+                    {
+                        "dim": [
+                            64,
+                            1,
+                            28,
+                            28
+                        ]
+                    }
+                ]
+            },
+            "log_param": {
+                "base": -1,
+                "scale": 1
+            },
+            "loss_param": {
+                "normalization": 1
+            },
+            "lrn_param": {
+                "alpha": 1,
+                "beta": 0.75,
+                "k": 1,
+                "local_size": 5
+            },
+            "mvn_param": {
+                "eps": 1e-09,
+                "normalize_variance": true
+            },
+            "name": "data",
+            "pooling_param": {
+                "stride": 1
+            },
+            "power_param": {
+                "power": 1,
+                "scale": 1
+            },
+            "prelu_param": {
+                "filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                }
+            },
+            "recurrent_param": {
+                "bias_filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                },
+                "weight_filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                }
+            },
+            "reduction_param": {
+                "coeff": 1,
+                "operation": 1
+            },
+            "reshape_param": {
+                "num_axes": -1
+            },
+            "scale_param": {
+                "axis": 1,
+                "bias_filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                },
+                "filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                },
+                "num_axes": 1
+            },
+            "slice_param": {
+                "axis": 1,
+                "slice_dim": 1
+            },
+            "softmax_param": {
+                "axis": 1
+            },
+            "tile_param": {
+                "axis": 1
+            },
+            "top": [
+                "data"
+            ],
+            "transform_param": {
+                "scale": 1
+            },
+            "type": "Input",
+            "window_data_param": {
+                "bg_threshold": 0.5,
+                "crop_mode": "warp",
+                "fg_fraction": 0.25,
+                "fg_threshold": 0.5,
+                "scale": 1
+            }
+        },
+        {
+            "accuracy_param": {
+                "axis": 1,
+                "top_k": 1
+            },
+            "argmax_param": {
+                "top_k": 1
+            },
+            "batch_norm_param": {
+                "eps": 1e-05,
+                "moving_average_fraction": 0.999
+            },
+            "bias_param": {
+                "axis": 1,
+                "filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                },
+                "num_axes": 1
+            },
+            "bottom": [
+                "data"
+            ],
+            "concat_param": {
+                "axis": 1,
+                "concat_dim": 1
+            },
+            "contrastive_loss_param": {
+                "margin": 1
+            },
+            "convolution_param": {
+                "axis": 1,
+                "bias_filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                },
+                "bias_term": true,
+                "group": 1,
+                "kernel_size": [
+                    5
+                ],
+                "num_output": 20,
+                "stride": [
+                    1
+                ],
+                "weight_filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "xavier"
+                }
+            },
+            "crop_param": {
+                "axis": 2
+            },
+            "data_param": {
+                "prefetch": 4,
+                "scale": 1
+            },
+            "dropout_param": {
+                "dropout_ratio": 0.5
+            },
+            "eltwise_param": {
+                "operation": 1,
+                "stable_prod_grad": true
+            },
+            "elu_param": {
+                "alpha": 1
+            },
+            "embed_param": {
+                "bias_filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                },
+                "bias_term": true,
+                "weight_filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                }
+            },
+            "exp_param": {
+                "base": -1,
+                "scale": 1
+            },
+            "flatten_param": {
+                "axis": 1,
+                "end_axis": -1
+            },
+            "hinge_loss_param": {
+                "norm": 1
+            },
+            "image_data_param": {
+                "batch_size": 1,
+                "is_color": true,
+                "scale": 1
+            },
+            "infogain_loss_param": {
+                "axis": 1
+            },
+            "inner_product_param": {
+                "axis": 1,
+                "bias_filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                },
+                "bias_term": true,
+                "weight_filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                }
+            },
+            "log_param": {
+                "base": -1,
+                "scale": 1
+            },
+            "loss_param": {
+                "normalization": 1
+            },
+            "lrn_param": {
+                "alpha": 1,
+                "beta": 0.75,
+                "k": 1,
+                "local_size": 5
+            },
+            "mvn_param": {
+                "eps": 1e-09,
+                "normalize_variance": true
+            },
+            "name": "conv1",
+            "param": [
+                {
+                    "decay_mult": 1,
+                    "lr_mult": 1.0
+                },
+                {
+                    "decay_mult": 1,
+                    "lr_mult": 2.0
+                }
+            ],
+            "pooling_param": {
+                "stride": 1
+            },
+            "power_param": {
+                "power": 1,
+                "scale": 1
+            },
+            "prelu_param": {
+                "filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                }
+            },
+            "recurrent_param": {
+                "bias_filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                },
+                "weight_filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                }
+            },
+            "reduction_param": {
+                "coeff": 1,
+                "operation": 1
+            },
+            "reshape_param": {
+                "num_axes": -1
+            },
+            "scale_param": {
+                "axis": 1,
+                "bias_filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                },
+                "filler": {
+                    "max": 1,
+                    "sparse": -1,
+                    "std": 1,
+                    "type": "constant"
+                },
+                "num_axes": 1
+            },
+            "slice_param": {
+                "axis": 1,
+                "slice_dim": 1
+            },
+            "softmax_param": {
+                "axis": 1
+            },
+            "tile_param": {
+                "axis": 1
+            },
+            "top": [
+                "conv1"
+            ],
+            "transform_param": {
+                "scale": 1
+            },
+            "type": "Convolution",
+            "window_data_param": {
+                "bg_threshold": 0.5,
+                "crop_mode": "warp",
+                "fg_fraction": 0.25,
+                "fg_threshold": 0.5,
+                "scale": 1
+            }
+        }
+    ],
+    "name": "LeNet",
+    "state": {
+        "phase": 1
+    }
+}
