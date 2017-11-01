@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from caffe_web.model import *
 import  json
 from caffe_web.utils import send
@@ -20,7 +20,7 @@ def test():
 #     return rst
 
 
-@blueprint.route('/createDataset', methods=['POST'])
+@blueprint.route('/createDataset', methods = ['POST'])
 def createDataset():
     data = request.get_json()
     dataset = Dataset(
@@ -38,3 +38,28 @@ def createDataset():
     except IndexError:
         db.session.rollback()
         return send('error', 'error')
+
+@blueprint.route('/getDatasetListByUser', methods = ['POST'])
+def getDatasetListByUser():
+    data = request.get_json()
+    userId = data.get('userId')
+    dataset = Dataset.query.filter(Project.user_id == userId).all()
+    l = []
+    for item in dataset:
+        l.append({
+            "dataset_id": item.id,
+            "dataset_name": item.dataset_name,
+            "dataset_size": item.dataset_size,
+            "formate": item.format,
+            "path": item.path,
+            "description": item.description,
+            "created_time": item.created_at
+        })
+
+    result = {
+        "status": "ok",
+        "data":{
+            "dataset_list": l
+        }
+    }
+    return jsonify(result)
