@@ -3,7 +3,7 @@ def send(status, data={}):
         pass
     else:
         rst = {'status': status, 'data': data}
-        return rst
+        return "{}".format(rst)
 
 
 def ensureAuth():

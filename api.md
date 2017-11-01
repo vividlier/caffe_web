@@ -139,6 +139,7 @@ post /dataset/createDataset
 request:
 ```json
 {
+    "user_id":"xx",
     "dataset_name":"xxx",
     "format":"xxx",
     "description":"xxx"
@@ -184,5 +185,60 @@ response:
     "data":{}
 }
 ```
-## 获取net
+## 获取net列表
+post /net/getNetByUser
+request:
+```json
+{
+    "net_id":"xx"
+}
+```
+response:
+```json
+{
+    "status":"ok",
+    "data":{
+        "net_list":[
+            {
+                "net_id":"xx",
+                "net_name":"xxx",
+                "net_path":"xxx"
+            }
+        ]
+    }
+}
+```
 ## 创建net
+post /net/createNet
+request:
+```json
+{
+    "user_id":"xx",
+    "net_name":"xxx",
+    "net_path":"xxx"
+}
+```
+response:
+```json
+{
+    "status":"ok",
+    "data":{}
+}
+```
+## 修改net
+post /net/updateNet
+request:
+```json
+{
+    "net_id":"xx",
+    "net_name":"xxx",
+    "net_path":"xxx"
+}
+```
+response:
+```json
+{
+    "status":"ok",
+    "data":{}
+}
+```
