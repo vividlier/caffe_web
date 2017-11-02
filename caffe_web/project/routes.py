@@ -9,21 +9,17 @@ def  getProjectListByUser():
     data = request.get_json()
     userId = data.get('userId')
     project = Project.query.filter(Project.user_id == userId).all()
-    l = []
+    list_tmp = []
     for item in project:
-        l.append({
+        list_tmp.append({
             "project_id": item.id,
             "project_name": item.project_name,
             "updated_time": item.updated_at
         })
-    print(l)
-    result = {
-        "status": "ok",
-        "data": {
-            "project_list":l
-        }
+    tmp = {
+        "project_list": list_tmp
     }
-    return jsonify(result)
+    return send("ok", tmp)
 
 
 @blueprint.route('/getProjectDetailById', methods = ["POST"])
@@ -31,9 +27,10 @@ def getProjectDetailById():
     data = request.get_json()
     projectId = data.get('projectId')
     project = Project.query.filter(Project.id == projectId).first()
-    tmp = {}
-    tmp["dataset_name"] = project.dataset.dataset_name
-    tmp["project_name"] = project.project_name
-    tmp["net_name"] = project.net.net_name
-    tmp["solver_name"] = project.solver.solver_name
+    tmp = {
+        "dataset_name": project.dataset.dataset_name,
+        "project_name": project.project_name,
+        "net_name": project.net.net_name,
+        "solver_name": project.solver.solver_name
+    }
     return send("ok", tmp)

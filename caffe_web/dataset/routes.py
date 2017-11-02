@@ -29,7 +29,7 @@ def createDataset():
         format=data.get("format"),
         user_id=data.get("user_id"),
         path=data.get("path"),
-        description=data.get("description"),
+        description=data.get("description")
     )
     db.session.add(dataset)
     try:
@@ -39,14 +39,15 @@ def createDataset():
         db.session.rollback()
         return send('error', 'error')
 
+
 @blueprint.route('/getDatasetListByUser', methods = ['POST'])
 def getDatasetListByUser():
     data = request.get_json()
     userId = data.get('userId')
     dataset = Dataset.query.filter(Project.user_id == userId).all()
-    l = []
+    list_tmp = []
     for item in dataset:
-        l.append({
+        list_tmp.append({
             "dataset_id": item.id,
             "dataset_name": item.dataset_name,
             "dataset_size": item.dataset_size,
@@ -55,11 +56,7 @@ def getDatasetListByUser():
             "description": item.description,
             "created_time": item.created_at
         })
-
-    result = {
-        "status": "ok",
-        "data":{
-            "dataset_list": l
-        }
+    tmp = {
+        "dataset_list": list_tmp
     }
-    return jsonify(result)
+    return send("ok", tmp)
