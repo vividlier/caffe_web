@@ -34,3 +34,16 @@ def getProjectDetailById():
         "solver_name": project.solver.solver_name
     }
     return send("ok", tmp)
+
+@blueprint.route('/createProject', methods=["POST"])
+def createProject():
+    data = request.get_json()
+    projectName = data.get('projectName')
+    project = Project(project_name = projectName)
+    db.session.add(project)
+    db.session.commit()
+    result = {
+        "status": "ok",
+        "data": {}
+    }
+    return jsonify(result)
